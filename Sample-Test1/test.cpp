@@ -23,140 +23,140 @@ bool operator==(const Pose& p1, const Pose& p2) {
 
 
 TEST(ExecutorTest,MOVECOMMEND) {
-	Exceutor exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("M");
+	Executor Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("M");
 	Pose pose{ {1,2},{'N'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
+	EXPECT_EQ(pose, Executor.GetPose());
 }
 
 
 TEST(ExecutorTest, TURNLEFTCOMMEND) {
-	Exceutor exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("L");
+	Executor Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("L");
 	Pose pose{ {1,1},{'W'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
+	EXPECT_EQ(pose, Executor.GetPose());
 }
 
 TEST(ExecutorTest, TURNRIGHTCOMMEND) {
-	Exceutor exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("R");
+	Executor Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("R");
 	Pose pose{ {1,1},{'E'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
+	EXPECT_EQ(pose, Executor.GetPose());
 }
 
 TEST(ExecutorTest, FASTCOMMEND) {
-	Exceutor exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("F");
-	exceutor.CommendCarry("M");
+	Executor Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("F");
+	Executor.CommendCarry("M");
 	Pose pose{ {1,3},{'N'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
-	exceutor.CommendCarry("F");
-	exceutor.CommendCarry("M");
+	EXPECT_EQ(pose, Executor.GetPose());
+	Executor.CommendCarry("F");
+	Executor.CommendCarry("M");
 	Pose pose2{ {1,4},{'N'} };
-	EXPECT_EQ(pose2, exceutor.GetPose());
+	EXPECT_EQ(pose2, Executor.GetPose());
 }
 
 TEST(ExecutorTest, BACKCOMMEND) {
-	Exceutor exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("B");
-	exceutor.CommendCarry("M");
+	Executor Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("B");
+	Executor.CommendCarry("M");
 	Pose pose{ {1,0},{'N'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
-	exceutor.CommendCarry("B");
-	exceutor.CommendCarry("M");
+	EXPECT_EQ(pose, Executor.GetPose());
+	Executor.CommendCarry("B");
+	Executor.CommendCarry("M");
 	Pose pose2{ {1,1},{'N'} };
-	EXPECT_EQ(pose2, exceutor.GetPose());
+	EXPECT_EQ(pose2, Executor.GetPose());
 }
 
 
 TEST(ExecutorTest, TURNARROUNDCOMMEND) {
-	Exceutor exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("TR");
+	Executor Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("TR");
 	Pose pose{ {0,1},{'S'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
-	exceutor.CommendCarry("F");
-	exceutor.CommendCarry("TR");
+	EXPECT_EQ(pose, Executor.GetPose());
+	Executor.CommendCarry("F");
+	Executor.CommendCarry("TR");
 	Pose pose2{ {1,0},{'N'} };
-	EXPECT_EQ(pose2, exceutor.GetPose());
+	EXPECT_EQ(pose2, Executor.GetPose());
 }
 
 TEST(SportyCarTest, MOVECOMMEND) {
-	SportyCar exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("M");
+	SportyCar Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("M");
 	Pose pose{ {1,3},{'N'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
+	EXPECT_EQ(pose, Executor.GetPose());
 
 }
 
 TEST(SportyCarTest, TURNLEFTCOMMEND) {
-	SportyCar exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("L");
+	SportyCar Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("L");
 	Pose pose{ {0,1},{'W'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
+	EXPECT_EQ(pose, Executor.GetPose());
 }
 
 TEST(SportyCarTest, TURNRIGHTCOMMEND) {
-	SportyCar exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("R");
+	SportyCar Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("R");
 	Pose pose{ {2,1},{'E'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
+	EXPECT_EQ(pose, Executor.GetPose());
 }
 
 TEST(SportyCarTest,FASTCOMMEND) {
-	SportyCar exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("F");
-	exceutor.CommendCarry("M");
+	SportyCar Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("F");
+	Executor.CommendCarry("M");
 	Pose pose{ {1,5},{'N'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
+	EXPECT_EQ(pose, Executor.GetPose());
 }
 
 
 TEST(SportyCarTest, BACKCOMMEND) {
-	SportyCar exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("B");
-	exceutor.CommendCarry("M");
+	SportyCar Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("B");
+	Executor.CommendCarry("M");
 	Pose pose{ {1,-1},{'N'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
+	EXPECT_EQ(pose, Executor.GetPose());
 }
 
 
 TEST(BusTest, MOVECOMMEND) {
-	Bus exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("M");
+	Bus Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("M");
 	Pose pose{ {1,2},{'N'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
+	EXPECT_EQ(pose, Executor.GetPose());
 }
 
 TEST(BusTest, TURNLEFTCOMMEND) {
-	Bus exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("L");
+	Bus Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("L");
 	Pose pose{ {1,2},{'W'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
+	EXPECT_EQ(pose, Executor.GetPose());
 }
 
 TEST(BusTest, TURNRIGHTCOMMEND) {
-	Bus exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("R");
+	Bus Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("R");
 	Pose pose{ {1,2},{'E'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
+	EXPECT_EQ(pose, Executor.GetPose());
 }
 
 
 TEST(BusTest,FASTCOMMEND) {
-	Bus exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("F");
-	exceutor.CommendCarry("M");
+	Bus Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("F");
+	Executor.CommendCarry("M");
 	Pose pose{ {1,3},{'N'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
+	EXPECT_EQ(pose, Executor.GetPose());
 }
 
 
 TEST(BusTest, BACKCOMMEND) {
-	Bus exceutor{ {{1,1},{'N'}} };
-	exceutor.CommendCarry("B");
-	exceutor.CommendCarry("M");
+	Bus Executor{ {{1,1},{'N'}} };
+	Executor.CommendCarry("B");
+	Executor.CommendCarry("M");
 	Pose pose{ {1,0},{'N'} };
-	EXPECT_EQ(pose, exceutor.GetPose());
+	EXPECT_EQ(pose, Executor.GetPose());
 }
 
 

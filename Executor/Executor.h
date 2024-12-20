@@ -67,10 +67,10 @@ private:
 
 
 
-class Exceutor {
+class Executor {
 public:
-	Exceutor(Pose pose);
-	Exceutor();
+	Executor(Pose pose);
+	Executor();
 	void FastCommend();
 	void BackCommend();
 	void ShowPose();
@@ -85,7 +85,7 @@ private:
 	void TurnLeftCommend();
 	void TurnRightCommend();
 	void TurnAroundCommend();
-	std::map<std::string, void(Exceutor::*)()> CmdGroup;
+	std::map<std::string, void(Executor::*)()> CmdGroup;
 
 
 	
@@ -96,7 +96,7 @@ protected:
 };
 
 
-class SportyCar :Exceutor {
+class SportyCar :Executor {
 public:
 	SportyCar(Pose pose);
 	SportyCar();
@@ -110,7 +110,7 @@ private:
 	std::map<std::string, void(SportyCar::*)()> CmdGroup;
 };
 
-class Bus :Exceutor {
+class Bus :Executor {
 public:
 	Bus(Pose pose);
 	Bus();

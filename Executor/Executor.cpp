@@ -167,7 +167,7 @@ const Point Pose::GetPoint()
 
 
 
-Exceutor::Exceutor(Pose pose)
+Executor::Executor(Pose pose)
 {
 	this->pose = pose;
 	isFast = 0;
@@ -175,14 +175,14 @@ Exceutor::Exceutor(Pose pose)
 	CmdGroupSet();
 }
 
-Exceutor::Exceutor()
+Executor::Executor()
 {
 	isFast = 0;
 	isBack = 0;
 	CmdGroupSet();
 }
 
-void Exceutor::FastCommend()
+void Executor::FastCommend()
 {
 	if (isFast == 0)
 		isFast = 1;
@@ -190,7 +190,7 @@ void Exceutor::FastCommend()
 		isFast = 0;
 }
 
-void Exceutor::BackCommend()
+void Executor::BackCommend()
 {
 	if (isBack == 0)
 		isBack = 1;
@@ -198,12 +198,12 @@ void Exceutor::BackCommend()
 		isBack = 0;
 }
 
-void Exceutor::ShowPose()
+void Executor::ShowPose()
 {
 	pose.Show();
 }
 
-void Exceutor::Move()
+void Executor::Move()
 {
 	if (isBack == 0)
 		pose.Move();
@@ -211,7 +211,7 @@ void Exceutor::Move()
 		pose.Back();
 }
 
-void Exceutor::TurnLeft()
+void Executor::TurnLeft()
 {
 	if (isBack == 0)
 		pose.TurnLeft();
@@ -219,7 +219,7 @@ void Exceutor::TurnLeft()
 		pose.TurnRight();
 }
 
-void Exceutor::TurnRight()
+void Executor::TurnRight()
 {
 	if (isBack == 0)
 		pose.TurnRight();
@@ -227,39 +227,39 @@ void Exceutor::TurnRight()
 		pose.TurnLeft();
 }
 
-void Exceutor::CommendCarry(std::string str)
+void Executor::CommendCarry(std::string str)
 {
 	if (CmdGroup.count(str) == 1)
 		(this->*CmdGroup[str])();
 }
 
-Pose Exceutor::GetPose()
+Pose Executor::GetPose()
 {
 	return pose;
 }
 
-void Exceutor::CmdGroupSet()
+void Executor::CmdGroupSet()
 {	
 	
-	CmdGroup.insert(std::pair<std::string, void(Exceutor::*)()>("M", &Exceutor::MoveCommend));
-	CmdGroup.insert(std::pair<std::string, void(Exceutor::*)()>("L", &Exceutor::TurnLeftCommend));
-	CmdGroup.insert(std::pair<std::string, void(Exceutor::*)()>("R", &Exceutor::TurnRightCommend));
-	CmdGroup.insert(std::pair<std::string, void(Exceutor::*)()>("TR", &Exceutor::TurnAroundCommend));
-	CmdGroup.insert(std::pair<std::string, void(Exceutor::*)()>("F", &Exceutor::FastCommend));
-	CmdGroup.insert(std::pair<std::string, void(Exceutor::*)()>("B", &Exceutor::BackCommend));
-	CmdGroup.insert(std::pair<std::string, void(Exceutor::*)()>("S", &Exceutor::ShowPose));
+	CmdGroup.insert(std::pair<std::string, void(Executor::*)()>("M", &Executor::MoveCommend));
+	CmdGroup.insert(std::pair<std::string, void(Executor::*)()>("L", &Executor::TurnLeftCommend));
+	CmdGroup.insert(std::pair<std::string, void(Executor::*)()>("R", &Executor::TurnRightCommend));
+	CmdGroup.insert(std::pair<std::string, void(Executor::*)()>("TR", &Executor::TurnAroundCommend));
+	CmdGroup.insert(std::pair<std::string, void(Executor::*)()>("F", &Executor::FastCommend));
+	CmdGroup.insert(std::pair<std::string, void(Executor::*)()>("B", &Executor::BackCommend));
+	CmdGroup.insert(std::pair<std::string, void(Executor::*)()>("S", &Executor::ShowPose));
 
 	
 }
 
-void Exceutor::MoveCommend()
+void Executor::MoveCommend()
 {
 	Move();
 	if (isFast == 1)
 		Move();
 }
 
-void Exceutor::TurnLeftCommend()
+void Executor::TurnLeftCommend()
 {
 	if (isFast == 1)
 		Move();
@@ -267,14 +267,14 @@ void Exceutor::TurnLeftCommend()
 
 }
 
-void Exceutor::TurnRightCommend()
+void Executor::TurnRightCommend()
 {
 	if (isFast == 1)
 		Move();
 	TurnRight();
 }
 
-void Exceutor::TurnAroundCommend()
+void Executor::TurnAroundCommend()
 {
 	if (isFast == 1)
 		Move();

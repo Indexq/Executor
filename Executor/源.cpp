@@ -4,7 +4,7 @@
 
 
  int main() {
-	Bus* ptr = new Bus();
+	Executor* ptr = new Executor();
 	std::string cmd;
 	ptr->CommendCarry("S");
 	while (1) {
@@ -14,12 +14,30 @@
 		ptr->CommendCarry("S");
 		std::cout << std::endl;
 	}
+	/*
+	SportyCar* ptr = new SportyCar();
+	std::string cmd;
+	ptr->CommendCarry("S");
+	while (1) {
+		std::cin >> cmd;
+		ptr->CommendCarry(cmd);
 
-	/*Point p1, p2;
-	std::cout << (p1 == p2);*/
-	 
-	 
-	
+		ptr->CommendCarry("S");
+		std::cout << std::endl;
+	}
 
+	Bus* ptr = new Bus();
+	std::string cmd;
+	ptr->CommendCarry("S");
+	while (1) {
+		std::cin >> cmd;
+		ptr->CommendCarry(cmd);
+
+		ptr->CommendCarry("S");
+		std::cout << std::endl;
+	}
+
+
+	*/
 
 }
