@@ -3,8 +3,8 @@
 #include<string>
 
 
-int main() {
-	Exceutor* ptr = new Exceutor();
+ int main() {
+	Bus* ptr = new Bus();
 	std::string cmd;
 	ptr->CommendCarry("S");
 	while (1) {
@@ -15,7 +15,10 @@ int main() {
 		std::cout << std::endl;
 	}
 
-
+	/*Point p1, p2;
+	std::cout << (p1 == p2);*/
+	 
+	 
 	
 
 

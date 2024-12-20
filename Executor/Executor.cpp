@@ -1,6 +1,18 @@
 #include "Executor.h"
 #include <map>
 #include <iostream>
+
+
+
+
+
+/*bool Direction::operator==(const Direction direction)
+{
+	if (Head == direction.Head)
+		return true;
+	else
+		return false;
+}*/
 Direction::Direction(int Head, char heading)
 {
 	this->Head = Head;
@@ -65,6 +77,14 @@ Point Point::operator=(const Point& point)
 	return *this;
 }
 
+/*bool Point::operator==(Point& point)
+{
+	if (x == point.x && y == point.y)
+		return true;
+	else
+		return false;
+}*/
+
 Point::Point(int x, int y)
 {
 	this->x = x;
@@ -94,6 +114,14 @@ Pose::Pose()
 {
 	
 }
+
+/*bool Pose::operator==(Pose& pose)
+{
+	if (point == pose.point && direction == pose.direction)
+		return true;
+	else
+		return false;
+}*/
 
 void Pose::Move()
 {
@@ -130,6 +158,11 @@ void Pose::ShowPoint()
 void Pose::ShowDirection()
 {
 	direction.Show();
+}
+
+const Point Pose::GetPoint()
+{
+	return point;
 }
 
 
@@ -200,6 +233,11 @@ void Exceutor::CommendCarry(std::string str)
 		(this->*CmdGroup[str])();
 }
 
+Pose Exceutor::GetPose()
+{
+	return pose;
+}
+
 void Exceutor::CmdGroupSet()
 {	
 	
@@ -264,6 +302,11 @@ void SportyCar::CommendCarry(std::string str)
 {
 	if (CmdGroup.count(str) == 1)
 		(this->*CmdGroup[str])();
+}
+
+Pose SportyCar::GetPose()
+{
+	return pose;
 }
 
 void SportyCar::CmdGroupSet()
@@ -342,6 +385,11 @@ void Bus::GetBack()
 	back = temp;
 }
 
+Pose Bus::GetPose()
+{
+	return pose;
+}
+
 void Bus::CmdGroupSet()
 {
 	CmdGroup.insert(std::pair<std::string, void(Bus::*)()>("M", &Bus::MoveCommend));
@@ -374,3 +422,4 @@ void Bus::TurnRightCommend()
 	Move();
 	TurnRight();
 }
+
